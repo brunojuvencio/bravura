@@ -1,0 +1,818 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bravura · Churrasco para eventos em Sertãozinho</title>
+<meta name="description" content="Churrasqueiro para a sua festa em Sertãozinho · SP. 4 horas de carne no ponto, servida em rodadas, pra você aproveitar com seus convidados. A partir de R$ 250.">
+<meta name="theme-color" content="#1C1714">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Big+Shoulders+Stencil+Display:wght@800;900&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+/* ============ TOKENS · BRAVURA v1 ============ */
+:root{
+  --carvao:#1C1714; --ferrugem:#C4502A; --kraft:#C9A77C; --osso:#EDE3D1; --couro:#5A4636;
+  --surface:#1C1714; --surface-raised:#2A221E; --ink:#EDE3D1; --ink-muted:#B5A892; --accent:var(--ferrugem); --line:#4A3F37;
+
+  --f-display:"Big Shoulders Display","Arial Narrow",sans-serif;
+  --f-stencil:"Big Shoulders Stencil Display","Arial Narrow",sans-serif;
+  --f-maquina:"Special Elite","Courier New",monospace;
+
+  --s1:4px; --s2:8px; --s3:16px; --s4:24px; --s5:48px; --s6:96px;
+  --r-sm:4px; --r-pill:999px;
+  --glow-brasa:0 0 60px rgba(196,80,42,.35);
+
+  --gutter:clamp(20px,5vw,48px);
+  --maxw:1200px;
+  --wa-bar:0px;
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--surface);color:var(--ink);
+  font-family:var(--f-maquina);font-size:17px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+::selection{background:var(--ferrugem);color:var(--osso)}
+
+/* grão de carvão sobre toda a página */
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.09;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ============ TIPOGRAFIA ============ */
+.display-xl{font-family:var(--f-display);font-weight:900;text-transform:uppercase;letter-spacing:-2px;line-height:.82}
+.display-l{font-family:var(--f-display);font-weight:900;text-transform:uppercase;line-height:.95;font-size:clamp(44px,7.4vw,84px);margin:0;letter-spacing:-.5px;text-wrap:balance}
+.display-m{font-family:var(--f-display);font-weight:900;text-transform:uppercase;line-height:1;font-size:clamp(34px,4.6vw,52px);margin:0;text-wrap:balance}
+.label-l{font-family:var(--f-stencil);font-weight:900;text-transform:uppercase;letter-spacing:.27em;line-height:1.2;font-size:clamp(17px,2vw,22px)}
+.label-m{font-family:var(--f-stencil);font-weight:900;text-transform:uppercase;letter-spacing:4px;line-height:1.3;font-size:clamp(14px,1.6vw,18px)}
+.label-s{font-family:var(--f-stencil);font-weight:900;text-transform:uppercase;letter-spacing:2px;line-height:1.3;font-size:12px}
+.body-l{font-size:clamp(18px,1.8vw,20px);line-height:1.5}
+.caption{font-size:14px;line-height:1.4}
+.muted{color:var(--ink-muted)}
+p{margin:0 0 1em;max-width:60ch}
+p:last-child{margin-bottom:0}
+
+/* losango ◆ */
+.dia{display:inline-block;width:9px;height:9px;background:var(--accent);transform:rotate(45deg);flex:none}
+.signature{display:inline-flex;align-items:center;gap:14px;color:var(--ink)}
+
+/* rótulo de seção (tagline) */
+.tag{display:flex;align-items:center;gap:12px;color:var(--ink-muted);margin-bottom:var(--s4)}
+.tag::after{content:"";height:1px;flex:1;max-width:120px;background:var(--line)}
+
+/* ============ LAYOUT ============ */
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--gutter)}
+section{position:relative}
+.sec{padding-block:clamp(72px,11vw,var(--s6)*1.4)}
+.rule{height:1px;background:var(--line);border:0;margin:0}
+
+/* ============ CÁPSULA WHATSAPP ============ */
+.cta{
+  display:inline-flex;align-items:center;gap:14px;text-decoration:none;
+  padding:18px 30px 18px 22px;border-radius:var(--r-pill);
+  background:rgba(28,23,20,.72);border:2px solid var(--ferrugem);color:var(--osso);
+  font-family:var(--f-stencil);font-weight:900;text-transform:uppercase;letter-spacing:.2em;font-size:clamp(14px,1.7vw,18px);line-height:1.2;
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  transition:background .25s ease,box-shadow .35s ease,transform .25s ease;
+  position:relative;
+}
+.cta:hover,.cta:focus-visible{background:var(--ferrugem);box-shadow:var(--glow-brasa);transform:translateY(-2px)}
+.cta:focus-visible{outline:2px solid var(--osso);outline-offset:4px}
+.cta .ico{width:34px;height:34px;border-radius:50%;background:var(--ferrugem);display:grid;place-items:center;flex:none;transition:background .25s}
+.cta:hover .ico{background:var(--carvao)}
+.cta .ico svg{width:18px;height:18px;fill:var(--osso)}
+.cta.glow{box-shadow:var(--glow-brasa)}
+.cta-note{display:block;margin-top:14px;color:var(--ink-muted)}
+
+/* ============ TOPO ============ */
+.top{position:absolute;top:0;left:0;right:0;z-index:5;padding-top:calc(env(safe-area-inset-top,0px) + 22px)}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.top .brand{font-family:var(--f-display);font-weight:900;font-size:30px;letter-spacing:-.5px;text-decoration:none;line-height:1}
+.top .loc{color:var(--ink-muted)}
+.top .phone{text-decoration:none;color:var(--ink);display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line);padding-bottom:4px;transition:border-color .2s}
+.top .phone:hover{border-color:var(--ferrugem)}
+
+/* ============ DOBRA 1 · HERO ============ */
+.hero{
+  min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;
+  padding-block:110px clamp(48px,6vw,72px);
+  background:
+    radial-gradient(ellipse 60% 45% at 78% 88%,rgba(196,80,42,.42),transparent 70%),
+    radial-gradient(ellipse 35% 25% at 80% 96%,rgba(255,140,60,.28),transparent 70%),
+    radial-gradient(ellipse 80% 60% at 20% 10%,rgba(90,70,54,.25),transparent 70%),
+    var(--carvao);
+}
+.hero-photo{position:absolute;inset:0;background:url("bravura-foto-chave.jpg.jpeg") 70% 50%/cover no-repeat;opacity:.95}
+.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--carvao) 0%,rgba(28,23,20,.75) 35%,rgba(28,23,20,0) 62%),linear-gradient(0deg,var(--carvao) 0%,transparent 28%),linear-gradient(180deg,rgba(28,23,20,.6) 0%,transparent 18%)}
+.embers{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.ember{position:absolute;bottom:-10px;width:3px;height:3px;border-radius:50%;background:#ff8a4c;box-shadow:0 0 6px 1px rgba(255,120,50,.8);opacity:0;animation:rise linear infinite}
+@keyframes rise{
+  0%{transform:translate(0,0) scale(1);opacity:0}
+  10%{opacity:.9}
+  70%{opacity:.5}
+  100%{transform:translate(var(--dx),-85vh) scale(.3);opacity:0}
+}
+.hero .wrap{position:relative;z-index:2;width:100%}
+.hero-mark{font-size:clamp(84px,11.5vw,160px);margin:0 0 14px;color:var(--osso)}
+.hero-mark span{display:inline-block}
+.hero .signature{margin-bottom:clamp(32px,4vw,48px)}
+.hero h1{max-width:21ch;font-size:clamp(34px,4.4vw,60px);line-height:.98}
+.hero h1 em{font-style:normal;color:var(--ferrugem)}
+.hero .sub{margin-top:var(--s4);max-width:44ch;color:var(--ink)}
+.hero .actions{margin-top:clamp(32px,4vw,44px);display:flex;flex-wrap:wrap;align-items:center;gap:20px 32px}
+.hero .facts{display:flex;gap:28px;flex-wrap:wrap;color:var(--ink-muted)}
+.hero .facts b{font-family:var(--f-display);font-weight:900;font-size:28px;color:var(--ink);display:block;line-height:1;letter-spacing:0}
+.stamp{
+  position:absolute;right:var(--gutter);top:130px;z-index:2;
+  width:clamp(120px,14vw,168px);aspect-ratio:1;border:2px solid var(--ferrugem);border-radius:50%;
+  display:grid;place-items:center;text-align:center;transform:rotate(-12deg);
+  color:var(--ferrugem);
+}
+.stamp::before{content:"";position:absolute;inset:7px;border:1px dashed rgba(196,80,42,.6);border-radius:50%}
+.stamp b{font-family:var(--f-display);font-size:clamp(46px,5.4vw,64px);font-weight:900;line-height:.8;display:block}
+.stamp span{font-family:var(--f-stencil);font-weight:900;letter-spacing:3px;font-size:13px;color:var(--ink)}
+
+/* load stagger */
+.in{opacity:0;transform:translateY(24px);animation:up .9s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(var(--i,0) * 110ms + 150ms)}
+@keyframes up{to{opacity:1;transform:none}}
+.hero-mark .in{transform:translateY(60%)}
+
+/* ============ DOBRA 2 · DIFERENCIAL ============ */
+.diff-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(40px,6vw,96px);align-items:start}
+.diff h2.display-l{font-size:clamp(40px,6vw,72px)}
+.diff .kicker{margin-top:var(--s4);color:var(--ink-muted)}
+.diff .copy{padding-top:10px}
+.diff .copy p:first-child{font-size:clamp(18px,1.8vw,20px);line-height:1.5;color:var(--ink)}
+.diff .copy p{color:var(--ink-muted)}
+.diff .copy p strong{color:var(--ink);font-weight:400;background:linear-gradient(transparent 62%,rgba(196,80,42,.45) 62%)}
+
+/* régua das 4 horas */
+.corners::before,.corners::after,.corners>.c1,.corners>.c2{content:"";position:absolute;width:18px;height:18px;border-color:var(--accent);border-style:solid;pointer-events:none}
+.corners::before{top:-1px;left:-1px;border-width:2px 0 0 2px}
+.corners::after{top:-1px;right:-1px;border-width:2px 2px 0 0}
+.corners>.c1{bottom:-1px;left:-1px;border-width:0 0 2px 2px}
+.corners>.c2{bottom:-1px;right:-1px;border-width:0 2px 2px 0}
+.diff-cta{margin-top:clamp(48px,6vw,64px);display:flex;justify-content:center}
+
+/* ============ DOBRA 3 · JORNADA ============ */
+.jornada{background:var(--surface-raised);border-block:1px solid var(--line)}
+.jornada-head{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;margin-bottom:clamp(48px,6vw,80px)}
+.steps{list-style:none;margin:0;padding:0;counter-reset:s}
+.step{display:grid;grid-template-columns:clamp(72px,11vw,150px) minmax(0,720px);gap:clamp(20px,3vw,48px);padding-block:clamp(28px,4vw,44px);border-top:1px solid var(--line);align-items:start}
+.step:last-child{border-bottom:1px solid var(--line)}
+.step .n{font-family:var(--f-stencil);font-weight:900;font-size:clamp(64px,9vw,120px);line-height:.78;color:var(--ferrugem);letter-spacing:-2px}
+.step h3{font-family:var(--f-display);font-weight:900;text-transform:uppercase;font-size:clamp(26px,3vw,36px);line-height:1;margin:0 0 6px}
+.step .when{color:var(--ink-muted);margin-bottom:14px;display:block}
+.step p{color:var(--ink-muted)}
+.step p b{color:var(--ink);font-weight:400}
+
+/* ============ DOBRA 4 · GARANTIA (kraft) ============ */
+.garantia-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(40px,6vw,88px);align-items:center}
+.garantia .intro p{color:var(--ink-muted)}
+.garantia .intro .display-l{font-size:clamp(40px,5.6vw,68px);margin-bottom:var(--s4)}
+.garantia .intro .kicker{color:var(--ink);margin-bottom:var(--s4);display:block}
+.paper{
+  background:var(--kraft);color:var(--carvao);padding:clamp(28px,4vw,52px);position:relative;
+  transform:rotate(1.2deg);box-shadow:0 30px 60px -20px rgba(0,0,0,.7);
+  background-image:
+    radial-gradient(ellipse at 20% 0%,rgba(255,255,255,.12),transparent 50%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.6' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .25 0 0 0 0 .15 0 0 0 .35 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E");
+}
+.paper .head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;border-bottom:2px solid var(--carvao);padding-bottom:16px;margin-bottom:24px}
+.paper .head .display-m{font-size:clamp(28px,3.4vw,40px)}
+.paper .no{text-align:right}
+.clause{display:grid;grid-template-columns:auto 1fr;gap:18px;padding-block:18px;border-bottom:1px solid rgba(28,23,20,.35)}
+.clause:last-of-type{border-bottom:0}
+.clause .k{font-family:var(--f-stencil);font-weight:900;font-size:40px;line-height:.9}
+.clause h3{font-family:var(--f-stencil);font-weight:900;text-transform:uppercase;letter-spacing:3px;font-size:18px;margin:4px 0 8px}
+.clause p{font-size:16px;line-height:1.55;margin:0}
+.sign{margin-top:28px;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
+.sign .who{border-top:1px solid var(--carvao);padding-top:8px;min-width:220px}
+.sign .hand{font-family:var(--f-display);font-weight:800;font-size:40px;line-height:1;transform:rotate(-4deg);display:inline-block;margin-bottom:4px;letter-spacing:1px}
+.seal{width:104px;height:104px;border:3px solid var(--carvao);border-radius:50%;display:grid;place-items:center;text-align:center;transform:rotate(14deg);position:relative;flex:none}
+.seal::before{content:"";position:absolute;inset:6px;border:1px solid var(--carvao);border-radius:50%}
+.seal span{font-family:var(--f-stencil);font-weight:900;font-size:13px;letter-spacing:2px;line-height:1.15}
+.garantia .intro .cta{margin-top:var(--s5)}
+
+/* ============ DOBRA 5 · QUEM SOU EU ============ */
+.bruno{background:linear-gradient(180deg,var(--surface),#171310)}
+.bruno-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,6vw,96px);align-items:start}
+.frame{position:relative;border:1px solid var(--line);padding:14px;position:sticky;top:40px}
+.frame .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(28,23,20,.55) 0%,transparent 28%),radial-gradient(ellipse 60% 30% at 50% 100%,rgba(196,80,42,.22),transparent 70%);pointer-events:none}
+.frame .ph{aspect-ratio:3/4;background:
+  radial-gradient(ellipse 70% 50% at 50% 85%,rgba(196,80,42,.45),transparent 70%),
+  radial-gradient(ellipse 40% 20% at 50% 95%,rgba(255,150,70,.35),transparent 70%),
+  #120e0c;position:relative;overflow:hidden;display:grid;place-items:center}
+.frame .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;position:absolute;inset:0}
+.frame .ph .ph-mark{font-family:var(--f-display);font-weight:900;font-size:clamp(60px,8vw,110px);letter-spacing:-2px;color:rgba(237,227,209,.1);line-height:.8}
+.frame figcaption{display:flex;justify-content:space-between;gap:12px;padding-top:14px;color:var(--ink-muted);flex-wrap:wrap}
+.bruno .display-l{font-size:clamp(40px,5.8vw,70px);margin-bottom:var(--s4)}
+.bruno .role{color:var(--ink-muted);display:block;margin-bottom:var(--s5)}
+.story p{color:var(--ink-muted)}
+.story p.lead{color:var(--ink);font-size:clamp(18px,1.8vw,20px);line-height:1.5}
+.story .pull{
+  font-family:var(--f-display);font-weight:900;text-transform:uppercase;font-size:clamp(28px,3.4vw,40px);line-height:1;
+  color:var(--ink);border-left:3px solid var(--ferrugem);padding:6px 0 6px 22px;margin:36px 0;max-width:22ch
+}
+.story .pull em{font-style:normal;color:var(--ferrugem)}
+.map{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:28px 0 40px;color:var(--ink-muted)}
+.map i{height:1px;width:40px;background:var(--line)}
+
+/* ============ DOBRA 6 · PREÇO (nota) ============ */
+.preco{background:
+  radial-gradient(ellipse 50% 60% at 50% 100%,rgba(196,80,42,.18),transparent 70%),var(--surface)}
+.preco-head{text-align:center;max-width:900px;margin:0 auto clamp(48px,6vw,72px)}
+.preco-head .tag{justify-content:center}
+.preco-head .tag::before{content:"";height:1px;flex:1;max-width:120px;background:var(--line)}
+.preco-head .display-l{font-size:clamp(40px,6.4vw,80px)}
+.preco-head .display-l em{font-style:normal;color:var(--ferrugem)}
+.receipt-wrap{display:grid;grid-template-columns:1fr minmax(0,520px) 1fr;gap:32px;align-items:center}
+.receipt{
+  grid-column:2;background:var(--osso);color:var(--carvao);padding:40px clamp(22px,4vw,40px) 44px;position:relative;
+  box-shadow:0 40px 80px -30px rgba(0,0,0,.8);
+  --zig:radial-gradient(circle at 8px 0,transparent 7px,var(--osso) 7.5px);
+}
+.receipt::before,.receipt::after{content:"";position:absolute;left:0;right:0;height:10px;background-size:16px 10px;background-repeat:repeat-x}
+.receipt::before{top:-9px;background-image:radial-gradient(circle at 8px 10px,var(--osso) 6.5px,transparent 7px)}
+.receipt::after{bottom:-9px;background-image:radial-gradient(circle at 8px 0,var(--osso) 6.5px,transparent 7px)}
+.receipt .rh{text-align:center;border-bottom:1px dashed var(--carvao);padding-bottom:18px;margin-bottom:18px}
+.receipt .rh .display-xl{font-size:48px;letter-spacing:-1px;display:block}
+.receipt .rh .label-s{display:flex;justify-content:center;align-items:center;gap:10px;margin-top:8px}
+.receipt .rh .caption{color:var(--couro);margin-top:6px}
+.line-item{display:flex;align-items:baseline;gap:10px;padding:8px 0;font-size:16px}
+.line-item .dots{flex:1;border-bottom:1px dotted rgba(28,23,20,.5);transform:translateY(-4px)}
+.line-item.main{font-size:17px}
+.line-item.main span:first-child{font-family:var(--f-stencil);font-weight:900;letter-spacing:2px;text-transform:uppercase;font-size:16px}
+/* seletor de convidados */
+.guests{background:var(--kraft);margin:0 0 22px;padding:18px 18px 16px;border-radius:var(--r-sm)}
+.guests>.label-s{display:block;text-align:center;margin-bottom:10px}
+.guests-ctrl{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.step-btn{
+  width:44px;height:44px;flex:none;border-radius:var(--r-sm);border:2px solid var(--carvao);background:transparent;color:var(--carvao);
+  font-family:var(--f-display);font-weight:900;font-size:26px;line-height:1;cursor:pointer;transition:background .2s,color .2s
+}
+.step-btn:hover{background:var(--carvao);color:var(--osso)}
+.step-btn:focus-visible{outline:2px solid var(--carvao);outline-offset:3px}
+.step-btn:disabled{opacity:.3;cursor:not-allowed;background:transparent;color:var(--carvao)}
+.guests-n{font-family:var(--f-stencil);font-weight:900;text-transform:uppercase;letter-spacing:2px;font-size:14px;text-align:center}
+.guests-n b{display:block;font-family:var(--f-display);font-size:52px;line-height:.9;letter-spacing:-1px}
+.guests input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:28px;background:transparent;margin:12px 0 4px;cursor:pointer}
+.guests input[type=range]::-webkit-slider-runnable-track{height:4px;background:linear-gradient(90deg,var(--carvao) var(--fill,50%),rgba(28,23,20,.25) var(--fill,50%))}
+.guests input[type=range]::-moz-range-track{height:4px;background:rgba(28,23,20,.25)}
+.guests input[type=range]::-moz-range-progress{height:4px;background:var(--carvao)}
+.guests input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;margin-top:-9px;background:var(--ferrugem);border:3px solid var(--carvao);transform:rotate(45deg)}
+.guests input[type=range]::-moz-range-thumb{width:16px;height:16px;background:var(--ferrugem);border:3px solid var(--carvao);border-radius:0;transform:rotate(45deg)}
+.guests input[type=range]:focus-visible{outline:2px solid var(--carvao);outline-offset:4px}
+.price #price-num{display:inline-block}
+.price #price-num.bump{animation:bump .35s ease}
+@keyframes bump{40%{transform:translateY(-6px)}}
+.line-item.bonus{transition:color .3s}
+.lock-tag{display:none;font-size:12px;border:1px dashed var(--couro);padding:1px 6px;border-radius:var(--r-sm);font-family:var(--f-stencil);font-weight:900;letter-spacing:1px;margin-left:6px;vertical-align:2px;color:var(--couro)}
+.line-item.locked{color:var(--couro)}
+.line-item.locked .gift{display:none}
+.line-item.locked .lock-tag{display:inline-block}
+.line-item.locked>span:last-child{text-decoration:line-through;text-decoration-thickness:1px}
+.line-item.locked .dots{border-bottom-color:rgba(90,70,54,.35)}
+.more{color:var(--couro);text-align:center;margin:16px 0 0;max-width:none}
+.item-desc{color:var(--couro);font-size:14px;line-height:1.5;margin:0 0 16px;max-width:none}
+.bonus-h{display:flex;align-items:center;gap:10px;margin:18px 0 6px;padding-top:16px;border-top:1px dashed var(--carvao)}
+.bonus-h .dia{width:7px;height:7px}
+.gift{font-size:12px;border:1px solid var(--carvao);padding:1px 6px;border-radius:var(--r-sm);font-family:var(--f-stencil);font-weight:900;letter-spacing:1px;margin-left:6px;vertical-align:2px}
+.total{border-top:2px solid var(--carvao);margin-top:16px;padding-top:14px}
+.total .line-item{font-size:17px}
+.strike{position:relative;display:inline-block}
+.strike::after{content:"";position:absolute;left:-4px;right:-4px;top:52%;height:2px;background:var(--carvao);transform:rotate(-6deg) scaleX(0);transform-origin:left;transition:transform .6s cubic-bezier(.6,0,.2,1) .5s}
+.receipt.on .strike::after{transform:rotate(-6deg) scaleX(1)}
+.final{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-top:18px;padding:18px 0 4px;border-top:1px dashed var(--carvao);flex-wrap:wrap}
+.final .price{font-family:var(--f-display);font-weight:900;font-size:clamp(72px,11vw,104px);line-height:.8;color:var(--ferrugem);letter-spacing:-2px}
+.final .price small{font-size:.42em;letter-spacing:0;vertical-align:.9em;margin-right:4px}
+.per{margin-top:22px;background:var(--carvao);color:var(--osso);padding:16px 18px;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center}
+.per b{font-family:var(--f-display);font-weight:900;font-size:44px;line-height:.9}
+.per p{font-size:14px;line-height:1.45;margin:0;color:var(--osso)}
+.side-note{color:var(--ink-muted);font-size:15px;max-width:26ch}
+.side-note.l{justify-self:end;text-align:right}
+.side-note .label-s{display:block;color:var(--ink);margin-bottom:8px}
+.preco-cta{text-align:center;margin-top:clamp(56px,7vw,80px)}
+.preco-cta .label-m{display:flex;justify-content:center;align-items:center;gap:14px;margin-bottom:24px}
+
+/* ============ DOBRA 7 · FAQ ============ */
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(40px,6vw,96px);align-items:start}
+.faq-side{position:sticky;top:40px}
+.faq-side p{color:var(--ink-muted);margin-top:var(--s4)}
+.faq-side .cta{margin-top:var(--s5)}
+.qa{border-top:1px solid var(--line)}
+.qa:last-child{border-bottom:1px solid var(--line)}
+.qa summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;padding:22px 0;transition:color .2s}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary .num{font-family:var(--f-stencil);font-weight:900;color:var(--ink-muted);font-size:14px;letter-spacing:2px;min-width:26px}
+.qa summary h3{font-family:var(--f-display);font-weight:800;text-transform:uppercase;font-size:clamp(21px,2.3vw,26px);line-height:1.1;margin:0;letter-spacing:.3px}
+.qa summary .pm{width:28px;height:28px;position:relative;flex:none;border:1px solid var(--line);border-radius:50%;transition:border-color .2s,transform .35s}
+.qa summary .pm::before,.qa summary .pm::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:2px;background:var(--ink);transform:translate(-50%,-50%);transition:transform .35s}
+.qa summary .pm::after{transform:translate(-50%,-50%) rotate(90deg)}
+.qa[open] summary .pm{border-color:var(--ferrugem);background:var(--ferrugem)}
+.qa[open] summary .pm::after{transform:translate(-50%,-50%) rotate(0)}
+.qa summary:hover h3{color:#fff}
+.qa summary:hover .pm{border-color:var(--ferrugem)}
+.qa .a{padding:0 44px 26px calc(26px + 18px);color:var(--ink-muted);animation:open .4s ease}
+@keyframes open{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+/* ============ FECHAMENTO ============ */
+.fecho{
+  text-align:center;padding-block:clamp(96px,14vw,160px) clamp(72px,10vw,120px);overflow:hidden;
+  background:radial-gradient(ellipse 55% 55% at 50% 100%,rgba(196,80,42,.38),transparent 70%),radial-gradient(ellipse 25% 20% at 50% 100%,rgba(255,140,60,.25),transparent 70%),var(--carvao);
+  border-top:1px solid var(--line);
+}
+.fecho .display-l{font-size:clamp(52px,10vw,120px);max-width:12ch;margin:0 auto}
+.fecho p{margin:28px auto 44px;color:var(--ink-muted)}
+.fecho .signature{margin-top:56px}
+footer{border-top:1px solid var(--line);padding-block:32px calc(32px + var(--wa-bar))}
+footer .wrap{display:flex;justify-content:space-between;gap:16px 32px;flex-wrap:wrap;align-items:center;color:var(--ink-muted)}
+footer .brand{font-family:var(--f-display);font-weight:900;font-size:26px;color:var(--ink);letter-spacing:-.5px}
+
+/* ============ WHATSAPP FIXO (mobile) ============ */
+.wa-float{
+  position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:50;
+  transform:translate(-50%,140%);transition:transform .45s cubic-bezier(.2,.8,.2,1);
+  box-shadow:var(--glow-brasa),0 10px 30px rgba(0,0,0,.5);background:rgba(28,23,20,.9);white-space:nowrap;
+}
+.wa-float.show{transform:translate(-50%,0)}
+.wa-float:hover{transform:translate(-50%,-2px)}
+
+/* ============ REVEAL ============ */
+.rv{opacity:0;transform:translateY(34px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.on{opacity:1;transform:none}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}
+
+/* ============ RESPONSIVO ============ */
+@media (max-width:980px){
+  .diff-grid,.garantia-grid,.bruno-grid,.faq-grid{grid-template-columns:1fr}
+  .step{grid-template-columns:auto 1fr}
+  .receipt-wrap{grid-template-columns:1fr}
+  .receipt{grid-column:1;max-width:520px;width:100%;margin:0 auto}
+  .side-note,.side-note.l{justify-self:center;text-align:center;max-width:40ch}
+  .side-note.l{order:3}
+  .frame,.faq-side{position:relative;top:0}
+  .frame{max-width:460px}
+  .jornada-head{grid-template-columns:1fr}
+  .paper{transform:rotate(.6deg)}
+}
+@media (max-width:640px){
+  .top .loc{display:none}
+  .top .phone span{display:none}
+  .stamp{top:auto;bottom:auto;right:var(--gutter);top:92px;width:104px}
+  .stamp b{font-size:40px}
+  .stamp span{font-size:11px;letter-spacing:2px}
+  .hero{padding-top:150px}
+  .hero-photo{background-position:80% 0;background-size:auto 62%;opacity:.9}
+  .hero-photo::after{background:linear-gradient(0deg,var(--carvao) 42%,rgba(28,23,20,.55) 62%,rgba(28,23,20,.15) 100%),linear-gradient(180deg,rgba(28,23,20,.55) 0%,transparent 16%)}
+  .step{grid-template-columns:1fr;gap:12px}
+  .step .n{font-size:72px}
+  .qa .a{padding:0 0 24px 44px}
+  .cta{padding:16px 22px 16px 16px;letter-spacing:.14em}
+  .diff-cta .cta,.garantia .intro .cta,.bruno .cta,.faq-side .cta,.hero .cta{width:100%;justify-content:center}
+  .per{grid-template-columns:1fr}
+  :root{--wa-bar:84px}
+}
+@media (min-width:981px){.wa-float{display:none}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .in,.rv{opacity:1!important;transform:none!important}
+  .ember{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ÍCONE WHATSAPP (reuso) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="wa" viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35zM12.05 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.89 9.88zm8.41-18.3A11.81 11.81 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41z"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#topo" aria-label="Bravura, início">BRAVURA</a>
+    <span class="caption loc">Sertãozinho · SP</span>
+    <a class="phone label-s" href="#" data-wa="Olá, Bruno! Vim pelo site da Bravura.">
+      <span>WhatsApp</span> <span class="caption" style="font-family:var(--f-maquina);letter-spacing:0;text-transform:none;font-weight:400;display:inline">(16) 99211-7706</span>
+    </a>
+  </div>
+</header>
+
+<main id="topo">
+
+<!-- ================= DOBRA 1 · HEADLINE ================= -->
+<section class="hero" aria-labelledby="h-hero">
+  <div class="hero-photo" aria-hidden="true"></div>
+  <div class="embers" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <h1 id="h-hero" class="display-l in" style="--i:2">Eu assumo a churrasqueira da sua festa por <em>4 horas</em> pra você aproveitar cada minuto com seus convidados.</h1>
+    <p class="body-l sub in" style="--i:3">Porque quem faz a festa merece estar nela, e não na fumaça.</p>
+
+    <div class="actions in" style="--i:4">
+      <a class="cta glow" href="#" data-wa="Olá, Bruno! Quero reservar a Bravura pra minha festa.">
+        <span class="ico"><svg><use href="#wa"/></svg></span>Quero reservar minha data
+      </a>    </div>
+  </div>
+</section>
+
+<!-- ================= DOBRA 2 · DIFERENCIAL ================= -->
+<section class="sec diff" aria-labelledby="h-diff">
+  <div class="wrap">
+    <div class="diff-grid">
+      <div class="rv">
+        <div class="tag label-m"><i class="dia"></i>Você não vai perder a sua festa</div>
+        <h2 id="h-diff" class="display-l">Carne no ponto a festa inteira, e você com seus convidados.</h2>
+        <p class="label-m kicker">Churrasco em rodadas, do começo ao fim</p>
+      </div>
+      <div class="copy rv d1">
+        <p>Todo churrasco tem alguém que passa a festa inteira na fumaça, longe de quem veio pra comemorar. <strong>Com a Bravura, esse alguém deixa de ser você.</strong></p>
+        <p>Chego uma hora antes, com a brasa pronta quando os convidados chegam. A carne sai em rodadas por 4 horas, sempre quente e no ponto, sem faltar e sem esfriar na mesa. E no fim, deixo a churrasqueira limpa. Você só recebe, conversa e aproveita.</p>
+      </div>
+    </div>
+
+    <div class="diff-cta rv">
+      <a class="cta" href="#" data-wa="Olá, Bruno! Quero aproveitar minha festa. Como funciona?">
+        <span class="ico"><svg><use href="#wa"/></svg></span>Quero aproveitar minha festa
+      </a>    </div>
+  </div>
+</section>
+
+<!-- ================= DOBRA 3 · JORNADA ================= -->
+<section class="sec jornada" aria-labelledby="h-jornada">
+  <div class="wrap">
+    <div class="jornada-head rv">
+      <div>
+        <div class="tag label-m"><i class="dia"></i>Como funciona</div>
+        <h2 id="h-jornada" class="display-l" style="font-size:clamp(38px,5.6vw,68px);max-width:18ch">Do primeiro contato ao último espeto</h2>
+      </div>
+      <span class="caption muted">5 etapas · sem surpresa</span>
+    </div>
+
+    <ol class="steps">
+      <li class="step rv">
+        <span class="n" aria-hidden="true">01</span>
+        <div>
+          <h3>Reserva da data</h3>
+          <span class="label-s when">Com pelo menos 10 dias de antecedência</span>
+          <p>Você me chama, conta a data, o local e quantos convidados vão ser. <b>Com o sinal de 40%, a data é sua.</b></p>
+        </div>      </li>
+      <li class="step rv">
+        <span class="n" aria-hidden="true">02</span>
+        <div>
+          <h3>Planejamento do churrasco</h3>
+          <span class="label-s when">Carne do seu jeito</span>
+          <p>Definimos juntos o formato da carne: você compra, cada um leva o seu quilo, ou eu faço a compra. <b>Se ficar comigo, calculo a quantidade certa pro seu número de convidados.</b></p>
+        </div>      </li>
+      <li class="step rv">
+        <span class="n" aria-hidden="true">03</span>
+        <div>
+          <h3>Chegada antes de todo mundo</h3>
+          <span class="label-s when">1 hora antes do horário da festa</span>
+          <p>Chego, preparo a churrasqueira do local e acendo o fogo. <b>Se eu atrasar, você ganha 10% de desconto.</b></p>
+        </div>      </li>
+      <li class="step rv">
+        <span class="n" aria-hidden="true">04</span>
+        <div>
+          <h3>A festa acontece</h3>
+          <span class="label-s when">4 horas de serviço</span>
+          <p>A carne sai em rodadas, sempre quente e no ponto. <b>Você fica com seus convidados, sem precisar olhar pra churrasqueira.</b></p>
+        </div>      </li>
+      <li class="step rv">
+        <span class="n" aria-hidden="true">05</span>
+        <div>
+          <h3>Encerramento</h3>
+          <span class="label-s when">Churrasqueira limpa</span>
+          <p>Deixo a churrasqueira limpa e organizada, <b>e só então você paga o restante.</b></p>
+        </div>      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= DOBRA 4 · GARANTIA ================= -->
+<section class="sec garantia" aria-labelledby="h-garantia">
+  <div class="wrap garantia-grid">
+    <div class="intro rv">
+      <div class="tag label-m"><i class="dia"></i>Se eu falhar, quem paga sou eu</div>
+      <h2 id="h-garantia" class="display-l">Você cuida dos convidados. O risco fica comigo.</h2>
+      <span class="label-m kicker">Compromisso de quem assa como se fosse pra própria família</span>
+      <p>Quando você contrata alguém pro churrasco da sua festa, não está só pagando um serviço. Está confiando o dia que você esperou, os convidados que você chamou e a comida que vai marcar aquele encontro.</p>
+      <p>Eu sei o peso disso. Por isso, não te peço só confiança: assumo dois compromissos por escrito.</p>
+      <a class="cta" href="#" data-wa="Olá, Bruno! Quero reservar minha data com a garantia da Bravura.">
+        <span class="ico"><svg><use href="#wa"/></svg></span>Quero reservar minha data
+      </a>
+    </div>
+
+    <article class="paper rv d1" aria-label="Compromissos por escrito">
+      <div class="head">
+        <div>
+          <div class="label-s">Termo de compromisso</div>
+          <div class="display-m">Dois compromissos</div>
+        </div>
+        <div class="no caption">Nº 001<br>Bravura</div>
+      </div>
+
+      <div class="clause">
+        <span class="k">I.</span>
+        <div>
+          <h3>Pontualidade garantida</h3>
+          <p>Combinei de chegar uma hora antes, e é isso que vou fazer. Se eu atrasar, você ganha 10% de desconto, abatido direto no valor que paga no fim da festa, sem precisar pedir.</p>
+        </div>
+      </div>
+      <div class="clause">
+        <span class="k">II.</span>
+        <div>
+          <h3>Carne até o fim</h3>
+          <p>Quando eu faço a compra, eu calculo a quantidade pro seu número de convidados. Se a carne acabar antes das 4 horas por erro meu, eu reponho sem custo nenhum pra você.</p>
+        </div>
+      </div>
+
+      <div class="sign">
+        <div class="who">
+          <span class="hand">Bruno Juvencio</span>
+          <div class="caption">Bruno Juvencio · churrasqueiro</div>
+        </div>
+        <div class="seal" aria-hidden="true"><span>RISCO<br>FICA<br>COMIGO</span></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ================= DOBRA 5 · QUEM SOU EU ================= -->
+<section class="sec bruno" aria-labelledby="h-bruno">
+  <div class="wrap bruno-grid">
+    <figure class="frame corners rv" style="margin:0">
+      <i class="c1"></i><i class="c2"></i>
+      <div class="ph">
+        <span class="ph-mark" aria-hidden="true">BRAVURA</span>
+        <img src="Foto%20bruno.png" alt="Bruno Juvencio, churrasqueiro da Bravura, de avental de couro e braços cruzados" width="1086" height="1448" loading="lazy" onerror="this.remove()">
+      </div>
+      <figcaption class="caption"><span>Bruno Juvencio</span><span>Sertãozinho · SP</span></figcaption>
+    </figure>
+
+    <div class="rv d1">
+      <div class="tag label-m"><i class="dia"></i>Eu sempre fui o cara da churrasqueira</div>
+      <h2 id="h-bruno" class="display-l">O mesmo churrasco que une a minha família, agora na sua festa.</h2>
+      <span class="label-m role">Bruno Juvencio, churrasqueiro da Bravura</span>
+
+      <div class="story">
+        <p class="lead">Cresci numa família de cozinheiros, entre buffet e lanchonete, onde a comida era o jeito de juntar todo mundo.</p>
+        <p>Mas foi em Perdigão, Minas Gerais, que o churrasco virou paixão. Meu sogro, açougueiro, me ensinou o que nenhuma receita ensina: conhecer a carne do corte até a brasa, respeitar o tempo do fogo, servir com cuidado.</p>
+
+        <div class="map label-s"><span>Família de cozinheiros</span><i></i><span>Perdigão · MG</span><i></i><span>Sertãozinho · SP</span></div>
+
+        <p>Desde então, em toda festa, eu acabava no mesmo lugar: em frente à churrasqueira, vendo as horas passarem voando. Minha rotina era de marketing, entre telas e reuniões, mas era na brasa que eu me sentia em casa.</p>
+        <blockquote class="pull">Alguém que cuida do churrasco pra que a família inteira possa <em>estar junta.</em></blockquote>
+        <p>Um dia entendi que aquilo que eu fazia de graça, com prazer, podia ser o presente que falta em tantas festas: alguém que cuida do churrasco pra que a família inteira possa estar junta. Foi assim que nasceu a Bravura.</p>
+      </div>
+
+      <a class="cta" href="#" data-wa="Olá, Bruno! Quero você na minha festa." style="margin-top:var(--s5)">
+        <span class="ico"><svg><use href="#wa"/></svg></span>Quero o Bruno na minha festa
+      </a>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ================= DOBRA 6 · PREÇO ================= -->
+<section class="sec preco" aria-labelledby="h-preco">
+  <div class="wrap">
+    <div class="preco-head rv">
+      <div class="tag label-m">Tudo o que sua festa ganha com a Bravura</div>
+      <h2 id="h-preco" class="display-l">Seja convidado da <em>sua própria festa.</em></h2>
+    </div>
+
+    <div class="receipt-wrap">
+      <div class="side-note l rv">
+        <span class="label-s">Reserva</span>
+        40% de sinal garante a data. O restante, só no fim da festa.
+      </div>
+
+      <div class="receipt rv d1" id="receipt">
+        <div class="rh">
+          <span class="display-xl">BRAVURA</span>
+          <span class="label-s"><i class="dia"></i>Churrasco para eventos<i class="dia"></i></span>
+          <div class="caption">Sertãozinho · SP</div>
+        </div>
+
+        <div class="guests">
+          <label class="label-s" for="guests-range">Quantos convidados?</label>
+          <div class="guests-ctrl">
+            <button type="button" class="step-btn" data-step="-1" aria-label="Menos um convidado">−</button>
+            <output class="guests-n" id="guests-out" for="guests-range" aria-live="polite"><b>30</b> pessoas</output>
+            <button type="button" class="step-btn" data-step="1" aria-label="Mais um convidado">+</button>
+          </div>
+          <input type="range" id="guests-range" min="10" max="50" step="1" value="30">        </div>
+
+        <div class="line-item main"><span>Serviço completo</span><span class="dots"></span><span data-price-text>R$ 250</span></div>
+        <p class="item-desc">4 horas de churrasco servido em rodadas, chegada uma hora antes com o fogo pronto, planejamento da carne pro seu número de convidados e churrasqueira limpa no fim.</p>
+
+        <div class="bonus-h label-s"><i class="dia"></i>E ainda vai junto, por minha conta</div>
+        <div class="line-item bonus" data-min="0" data-value="30"><span>Sal de parrilha<span class="gift">GRÁTIS</span></span><span class="dots"></span><span>R$ 30</span></div>
+        <div class="line-item bonus" data-min="31" data-value="40"><span>Pasta de alho<span class="gift">GRÁTIS</span><span class="lock-tag">ACIMA DE 30</span></span><span class="dots"></span><span>R$ 40</span></div>
+        <div class="line-item bonus" data-min="41" data-value="50"><span>Chimichurri da casa<span class="gift">GRÁTIS</span><span class="lock-tag">ACIMA DE 40</span></span><span class="dots"></span><span>R$ 50</span></div>
+
+        <div class="total">
+          <div class="line-item"><span>Valor total</span><span class="dots"></span><span class="strike" data-total-text>R$ 370</span></div>
+        </div>
+
+        <div class="final">
+          <span class="label-s">Você paga</span>
+          <span class="price"><small>R$</small><span id="price-num">250</span></span>
+        </div>
+
+        <div class="per">
+          <b id="per-num">R$ 8,33</b>
+          <p>por pessoa numa festa de <span id="per-guests">30</span> convidados, pra você passar a festa inteira com quem veio te ver.</p>
+        </div>
+        <p class="more caption">Mais de 50 convidados? Me chama no WhatsApp que a gente conversa.</p>
+      </div>
+
+      <div class="side-note rv d2">
+        <span class="label-s">Mas você não paga <span data-total-text>R$ 370</span></span>
+        Serviço completo e acompanhamentos saem por <span data-price-text>R$ 250</span>.
+      </div>
+    </div>
+
+    <div class="preco-cta rv">
+      <div class="label-m"><i class="dia"></i>Reserve com 40% e pague o restante só no fim da festa<i class="dia"></i></div>
+      <a class="cta glow" id="preco-cta" href="#" data-wa="Olá, Bruno! Quero reservar minha data por R$ 250.">
+        <span class="ico"><svg><use href="#wa"/></svg></span>Quero reservar minha data
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DOBRA 7 · FAQ ================= -->
+<section class="sec faq" aria-labelledby="h-faq" style="border-top:1px solid var(--line)">
+  <div class="wrap faq-grid">
+    <div class="faq-side rv">
+      <div class="tag label-m"><i class="dia"></i>Perguntas</div>
+      <h2 id="h-faq" class="display-l" style="font-size:clamp(44px,6vw,76px)">Ainda ficou alguma dúvida?</h2>
+      <p>Se a sua não estiver aqui, me chama no WhatsApp. Quem responde sou eu.</p>
+      <a class="cta" href="#" data-wa="Olá, Bruno! Tenho uma dúvida sobre a Bravura.">
+        <span class="ico"><svg><use href="#wa"/></svg></span>Quero reservar minha data
+      </a>
+    </div>
+
+    <div class="rv d1">
+      <details class="qa" open><summary><span class="num">01</span><h3>Sai mais caro do que eu mesmo fazer?</h3><span class="pm"></span></summary>
+        <div class="a">A festa é sua, e quem faz o churrasco quase nunca aproveita: passa horas no calor da brasa enquanto os convidados conversam sem você. A partir de R$ 250, você recebe, conversa e curte do começo ao fim. E ainda ganha acompanhamentos da casa por minha conta: sal de parrilha em toda festa, pasta de alho acima de 30 convidados e chimichurri acima de 40.</div></details>
+      <details class="qa"><summary><span class="num">02</span><h3>Serve pra minha festa?</h3><span class="pm"></span></summary>
+        <div class="a">Se for em Sertãozinho e tiver até 50 convidados, serve. Aniversário, confraternização, reunião de família ou encontro entre amigos: se tem churrasqueira no local, eu cuido do resto.</div></details>
+      <details class="qa"><summary><span class="num">03</span><h3>A carne está inclusa?</h3><span class="pm"></span></summary>
+        <div class="a">Você escolhe o formato: compra a carne, organiza no "cada um leva o seu quilo" ou deixa que eu faça a compra. Nesse último caso, o valor da carne é passado sob consulta, conforme os cortes escolhidos.</div></details>
+      <details class="qa"><summary><span class="num">04</span><h3>Quanto de carne eu preciso?</h3><span class="pm"></span></summary>
+        <div class="a">Eu te ajudo a calcular com base no número de convidados e no perfil da festa, pra não faltar nem sobrar demais.</div></details>
+      <details class="qa"><summary><span class="num">05</span><h3>Você leva a churrasqueira?</h3><span class="pm"></span></summary>
+        <div class="a">Não, uso a churrasqueira do próprio local. Assim não tem montagem nem custo extra de estrutura.</div></details>
+      <details class="qa"><summary><span class="num">06</span><h3>O que não está incluso?</h3><span class="pm"></span></summary>
+        <div class="a">Carvão, bebidas, pratos e talheres, além da carne quando você mesmo compra.</div></details>
+      <details class="qa"><summary><span class="num">07</span><h3>Como funciona o pagamento?</h3><span class="pm"></span></summary>
+        <div class="a">40% de sinal pra reservar a data e o restante no dia, só quando o serviço termina.</div></details>
+      <details class="qa"><summary><span class="num">08</span><h3>Com quanto tempo de antecedência preciso reservar?</h3><span class="pm"></span></summary>
+        <div class="a">Com pelo menos 10 dias. A data fica garantida assim que o sinal é pago.</div></details>
+      <details class="qa"><summary><span class="num">09</span><h3>E se algo der errado?</h3><span class="pm"></span></summary>
+        <div class="a">Se eu atrasar, você ganha 10% de desconto, abatido no valor final. E se eu fizer a compra e a carne acabar antes das 4 horas por erro meu, eu reponho sem custo. O risco fica comigo.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FECHAMENTO ================= -->
+<section class="fecho" aria-labelledby="h-fecho">
+  <div class="wrap">
+    <h2 id="h-fecho" class="display-l rv">Seu evento, nossa brasa.</h2>
+    <p class="body-l rv d1">Você recebe os convidados. A brasa é com a gente.</p>
+    <div class="rv d2">
+      <a class="cta glow" href="#" data-wa="Olá, Bruno! Quero reservar minha data com a Bravura.">
+        <span class="ico"><svg><use href="#wa"/></svg></span>Orçamento pelo WhatsApp
+      </a>
+      <span class="cta-note caption">(16) 99211-7706 · Bruno Juvencio, churrasqueiro</span>
+    </div>
+    <div class="signature label-m rv d3"><i class="dia"></i>CHURRASCO PARA EVENTOS<i class="dia"></i></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="brand">BRAVURA</span>
+    <span class="caption">Churrasco para eventos · Sertãozinho · SP</span>
+    <span class="caption">WhatsApp (16) 99211-7706</span>
+  </div>
+</footer>
+
+<a class="cta wa-float" href="#" data-wa="Olá, Bruno! Quero reservar minha data com a Bravura." aria-label="Reservar pelo WhatsApp">
+  <span class="ico"><svg><use href="#wa"/></svg></span>Reservar pelo WhatsApp
+</a>
+
+<script>
+(function(){
+  // Links do WhatsApp
+  var WA = "5516992117706";
+  document.querySelectorAll("[data-wa]").forEach(function(a){
+    a.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(a.getAttribute("data-wa"));
+    a.target = "_blank"; a.rel = "noopener";
+  });
+
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Brasas subindo no hero
+  var box = document.querySelector(".embers");
+  if (box && !reduce) {
+    var n = window.innerWidth < 640 ? 18 : 34;
+    for (var i = 0; i < n; i++) {
+      var e = document.createElement("i");
+      e.className = "ember";
+      var s = (Math.random() * 3 + 1.5).toFixed(1);
+      e.style.cssText = "left:" + (45 + Math.random() * 55) + "%;width:" + s + "px;height:" + s + "px;" +
+        "animation-duration:" + (6 + Math.random() * 8).toFixed(1) + "s;" +
+        "animation-delay:" + (-Math.random() * 12).toFixed(1) + "s;" +
+        "--dx:" + (Math.random() * 160 - 80).toFixed(0) + "px";
+      box.appendChild(e);
+    }
+  }
+
+  // Revelar ao rolar
+  var targets = document.querySelectorAll(".rv, #receipt");
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting) { en.target.classList.add("on"); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.18, rootMargin: "0px 0px -40px 0px" });
+    targets.forEach(function(t){ io.observe(t); });
+  } else {
+    targets.forEach(function(t){ t.classList.add("on"); });
+  }
+
+  // WhatsApp fixo aparece depois do hero e some no fechamento
+  var fl = document.querySelector(".wa-float");
+  var hero = document.querySelector(".hero");
+  var fecho = document.querySelector(".fecho");
+  function onScroll(){
+    var past = hero.getBoundingClientRect().bottom < 0;
+    var atEnd = fecho.getBoundingClientRect().top < window.innerHeight * 0.8;
+    fl.classList.toggle("show", past && !atEnd);
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  // Preço por número de convidados: R$ 250 até 30; +R$ 50 a cada 10 pessoas acima disso
+  // Brindes por faixa: até 30 = sal de parrilha; 31 a 40 = + pasta de alho; acima de 40 = + chimichurri
+  var MIN = 10, MAX = 50;
+  var bonusItems = document.querySelectorAll(".line-item.bonus");
+  var range = document.getElementById("guests-range");
+  var brl = function(v){ return "R$ " + v.toLocaleString("pt-BR", { minimumFractionDigits: v % 1 ? 2 : 0, maximumFractionDigits: 2 }); };
+  var priceFor = function(n){ return 250 + 50 * Math.ceil(Math.max(0, n - 30) / 10); };
+  var priceNum = document.getElementById("price-num");
+  var ctaPreco = document.getElementById("preco-cta");
+  var last = null;
+  function setGuests(n){
+    n = Math.min(MAX, Math.max(MIN, n));
+    range.value = n;
+    var p = priceFor(n), per = Math.round(p / n * 100) / 100;
+    range.style.setProperty("--fill", ((n - MIN) / (MAX - MIN) * 100) + "%");
+    document.querySelector("#guests-out b").textContent = n;
+    document.querySelectorAll("[data-price-text]").forEach(function(el){ el.textContent = brl(p); });
+    var bonus = 0;
+    bonusItems.forEach(function(it){
+      var on = n >= +it.dataset.min;
+      it.classList.toggle("locked", !on);
+      if (on) bonus += +it.dataset.value;
+    });
+    document.querySelectorAll("[data-total-text]").forEach(function(el){ el.textContent = brl(p + bonus); });
+    priceNum.textContent = p;
+    if (last !== null && last !== p) { priceNum.classList.remove("bump"); void priceNum.offsetWidth; priceNum.classList.add("bump"); }
+    last = p;
+    document.getElementById("per-num").textContent = brl(per);
+    document.getElementById("per-guests").textContent = n;
+    document.querySelectorAll(".step-btn").forEach(function(b){ b.disabled = (+b.dataset.step < 0 && n <= MIN) || (+b.dataset.step > 0 && n >= MAX); });
+    ctaPreco.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent("Olá, Bruno! Quero reservar minha data. Serão " + n + " convidados (" + brl(p) + ").");
+  }
+  range.addEventListener("input", function(){ setGuests(+range.value); });
+  document.querySelectorAll(".step-btn").forEach(function(b){
+    b.addEventListener("click", function(){ setGuests(+range.value + +b.dataset.step); });
+  });
+  setGuests(30);
+
+  // FAQ: uma aberta por vez
+  var qs = document.querySelectorAll(".qa");
+  qs.forEach(function(d){
+    d.addEventListener("toggle", function(){
+      if (d.open) qs.forEach(function(o){ if (o !== d) o.open = false; });
+    });
+  });
+})();
+</script>
+</body>
+</html>
