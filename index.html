@@ -25,7 +25,6 @@
 
   --gutter:clamp(20px,5vw,48px);
   --maxw:1200px;
-  --wa-bar:0px;
 }
 *,*::before,*::after{box-sizing:border-box}
 [hidden]{display:none!important}
@@ -329,18 +328,10 @@ section{position:relative}
 .fecho .display-l{font-size:clamp(52px,10vw,120px);max-width:12ch;margin:0 auto}
 .fecho p{margin:28px auto 44px;color:var(--ink-muted)}
 .fecho .signature{margin-top:56px}
-footer{border-top:1px solid var(--line);padding-block:32px calc(32px + var(--wa-bar))}
+footer{border-top:1px solid var(--line);padding-block:32px calc(32px + env(safe-area-inset-bottom,0px))}
 footer .wrap{display:flex;justify-content:space-between;gap:16px 32px;flex-wrap:wrap;align-items:center;color:var(--ink-muted)}
 footer .brand{font-family:var(--f-display);font-weight:900;font-size:26px;color:var(--ink);letter-spacing:-.5px}
 
-/* ============ WHATSAPP FIXO (mobile) ============ */
-.wa-float{
-  position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:50;
-  transform:translate(-50%,140%);transition:transform .45s cubic-bezier(.2,.8,.2,1);
-  box-shadow:var(--glow-brasa),0 10px 30px rgba(0,0,0,.5);background:rgba(28,23,20,.9);white-space:nowrap;
-}
-.wa-float.show{transform:translate(-50%,0)}
-.wa-float:hover{transform:translate(-50%,-2px)}
 
 /* ============ REVEAL ============ */
 .rv{opacity:0;transform:translateY(34px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
@@ -373,9 +364,7 @@ footer .brand{font-family:var(--f-display);font-weight:900;font-size:26px;color:
   .cta{padding:16px 22px 16px 16px;letter-spacing:.14em}
   .diff-cta .cta,.garantia .intro .cta,.bruno .cta,.faq-side .cta,.hero .cta{width:100%;justify-content:center}
   .per{grid-template-columns:1fr}
-  :root{--wa-bar:84px}
 }
-@media (min-width:981px){.wa-float{display:none}}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
   .in,.rv{opacity:1!important;transform:none!important}
@@ -704,10 +693,6 @@ footer .brand{font-family:var(--f-display);font-weight:900;font-size:26px;color:
   </div>
 </footer>
 
-<a class="cta wa-float" href="#" data-wa="Olá, Bruno! Quero reservar minha data com a Bravura." aria-label="Reservar pelo WhatsApp">
-  <span class="ico"><svg><use href="#wa"/></svg></span>Reservar pelo WhatsApp
-</a>
-
 <script>
 (function(){
   // Links do WhatsApp
@@ -747,18 +732,6 @@ footer .brand{font-family:var(--f-display);font-weight:900;font-size:26px;color:
   } else {
     targets.forEach(function(t){ t.classList.add("on"); });
   }
-
-  // WhatsApp fixo aparece depois do hero e some no fechamento
-  var fl = document.querySelector(".wa-float");
-  var hero = document.querySelector(".hero");
-  var fecho = document.querySelector(".fecho");
-  function onScroll(){
-    var past = hero.getBoundingClientRect().bottom < 0;
-    var atEnd = fecho.getBoundingClientRect().top < window.innerHeight * 0.8;
-    fl.classList.toggle("show", past && !atEnd);
-  }
-  window.addEventListener("scroll", onScroll, { passive: true });
-  onScroll();
 
   // Preço por número de convidados: R$ 250 até 30; +R$ 50 a cada 10 pessoas acima disso
   // Brindes por faixa: até 30 = sal de parrilha; 31 a 40 = + pasta de alho; acima de 40 = + chimichurri
