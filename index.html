@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Bravura · Churrasco para eventos em Sertãozinho</title>
-<meta name="description" content="Churrasqueiro para a sua festa em Sertãozinho · SP. 4 horas de carne no ponto, servida em rodadas, pra você aproveitar com seus convidados. A partir de R$ 250.">
+<meta name="description" content="Churrasqueiro para a sua festa em Sertãozinho · SP. 4 horas de carne no ponto, servida em rodadas, pra você aproveitar com seus convidados. A partir de R$ 200.">
 <meta name="theme-color" content="#1C1714">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -276,6 +276,8 @@ section{position:relative}
 .line-item.locked .lock-tag{display:inline-block}
 .line-item.locked>span:last-child{text-decoration:line-through;text-decoration-thickness:1px}
 .line-item.locked .dots{border-bottom-color:rgba(90,70,54,.35)}
+.launch s{color:var(--couro);text-decoration-thickness:1px;margin-right:4px}
+.launch-label{text-align:right;color:var(--couro);margin:-4px 0 10px}
 .more{color:var(--couro);text-align:center;margin:16px 0 0;max-width:none}
 .item-desc{color:var(--couro);font-size:14px;line-height:1.5;margin:0 0 16px;max-width:none}
 .bonus-h{display:flex;align-items:center;gap:10px;margin:18px 0 6px;padding-top:16px;border-top:1px dashed var(--carvao)}
@@ -398,7 +400,7 @@ footer .brand{font-family:var(--f-display);font-weight:900;font-size:26px;color:
     <p class="body-l sub in" style="--i:3">Porque quem faz a festa merece estar nela, e não na fumaça.</p>
 
     <div class="actions in" style="--i:4">
-      <a class="cta glow" href="#" data-wa="Olá, Bruno! Quero reservar a Bravura pra minha festa.">
+      <a class="cta glow" href="https://wa.me/5516992117706?text=Ol%C3%A1%2C%20Bruno!%20Vim%20pelo%20site%20e%20quero%20reservar%20uma%20data%20para%20o%20churrasco." target="_blank" rel="noopener">
         <span class="ico"><svg><use href="#wa"/></svg></span>Quero reservar minha data
       </a>    </div>
   </div>
@@ -420,7 +422,7 @@ footer .brand{font-family:var(--f-display);font-weight:900;font-size:26px;color:
     </div>
 
     <div class="diff-cta rv">
-      <a class="cta" href="#" data-wa="Olá, Bruno! Quero aproveitar minha festa. Como funciona?">
+      <a class="cta" href="https://wa.me/5516992117706?text=Ol%C3%A1%2C%20Bruno!%20Vim%20pelo%20site%20e%20quero%20reservar%20uma%20data%20para%20o%20churrasco." target="_blank" rel="noopener">
         <span class="ico"><svg><use href="#wa"/></svg></span>Quero aproveitar minha festa
       </a>    </div>
   </div>
@@ -486,7 +488,7 @@ footer .brand{font-family:var(--f-display);font-weight:900;font-size:26px;color:
       <span class="label-m kicker">Compromisso de quem assa como se fosse pra própria família</span>
       <p>Quando você contrata alguém pro churrasco da sua festa, não está só pagando um serviço. Está confiando o dia que você esperou, os convidados que você chamou e a comida que vai marcar aquele encontro.</p>
       <p>Eu sei o peso disso. Por isso, não te peço só confiança: assumo dois compromissos por escrito.</p>
-      <a class="cta" href="#" data-wa="Olá, Bruno! Quero reservar minha data com a garantia da Bravura.">
+      <a class="cta" href="https://wa.me/5516992117706?text=Ol%C3%A1%2C%20Bruno!%20Vim%20pelo%20site%20e%20quero%20reservar%20uma%20data%20para%20o%20churrasco." target="_blank" rel="noopener">
         <span class="ico"><svg><use href="#wa"/></svg></span>Quero reservar minha data
       </a>
     </div>
@@ -556,7 +558,7 @@ footer .brand{font-family:var(--f-display);font-weight:900;font-size:26px;color:
         <p>Um dia entendi que aquilo que eu fazia de graça, com prazer, podia ser o presente que falta em tantas festas: alguém que cuida do churrasco pra que a família inteira possa estar junta. Foi assim que nasceu a Bravura.</p>
       </div>
 
-      <a class="cta" href="#" data-wa="Olá, Bruno! Quero você na minha festa." style="margin-top:var(--s5)">
+      <a class="cta" href="https://wa.me/5516992117706?text=Ol%C3%A1%2C%20Bruno!%20Vim%20pelo%20site%20e%20quero%20reservar%20uma%20data%20para%20o%20churrasco." target="_blank" rel="noopener" style="margin-top:var(--s5)">
         <span class="ico"><svg><use href="#wa"/></svg></span>Quero o Bruno na minha festa
       </a>
     </div>
@@ -595,7 +597,8 @@ footer .brand{font-family:var(--f-display);font-weight:900;font-size:26px;color:
           </div>
           <input type="range" id="guests-range" min="10" max="50" step="1" value="30">        </div>
 
-        <div class="line-item main"><span>Serviço completo</span><span class="dots"></span><span data-price-text>R$ 250</span></div>
+        <div class="line-item main"><span>Serviço completo</span><span class="dots"></span><span class="launch"><s data-full-text>R$ 250</s> <span data-launch-text>R$ 200</span></span></div>
+        <div class="launch-label label-s">Preço de lançamento</div>
         <p class="item-desc">4 horas de churrasco servido em rodadas, chegada uma hora antes com o fogo pronto, planejamento da carne pro seu número de convidados e churrasqueira limpa no fim.</p>
 
         <div class="bonus-h label-s"><i class="dia"></i>E ainda vai junto, por minha conta</div>
@@ -604,30 +607,25 @@ footer .brand{font-family:var(--f-display);font-weight:900;font-size:26px;color:
         <div class="line-item bonus" data-min="41" data-value="50"><span>Chimichurri da casa<span class="gift">GRÁTIS</span><span class="lock-tag">ACIMA DE 40</span></span><span class="dots"></span><span>R$ 50</span></div>
 
         <div class="total">
-          <div class="line-item"><span>Valor total</span><span class="dots"></span><span class="strike" data-total-text>R$ 370</span></div>
+          <div class="line-item"><span>Valor total</span><span class="dots"></span><span class="strike" data-total-text>R$ 280</span></div>
         </div>
 
         <div class="final">
           <span class="label-s">Você paga</span>
-          <span class="price"><small>R$</small><span id="price-num">250</span></span>
+          <span class="price"><small>R$</small><span id="price-num">200</span></span>
         </div>
 
         <div class="per">
-          <b id="per-num">R$ 8,33</b>
+          <b id="per-num">R$ 6,67</b>
           <p>por pessoa numa festa de <span id="per-guests">30</span> convidados, pra você passar a festa inteira com quem veio te ver.</p>
         </div>
         <p class="more caption">Mais de 50 convidados? Me chama no WhatsApp que a gente conversa.</p>
-      </div>
-
-      <div class="side-note rv d2">
-        <span class="label-s">Mas você não paga <span data-total-text>R$ 370</span></span>
-        Serviço completo e acompanhamentos saem por <span data-price-text>R$ 250</span>.
       </div>
     </div>
 
     <div class="preco-cta rv">
       <div class="label-m"><i class="dia"></i>Reserve com 40% e pague o restante só no fim da festa<i class="dia"></i></div>
-      <a class="cta glow" id="preco-cta" href="#" data-wa="Olá, Bruno! Quero reservar minha data por R$ 250.">
+      <a class="cta glow" id="preco-cta" href="https://wa.me/5516992117706?text=Ol%C3%A1%2C%20Bruno!%20Vim%20pelo%20site%20e%20quero%20reservar%20uma%20data%20para%20o%20churrasco." target="_blank" rel="noopener">
         <span class="ico"><svg><use href="#wa"/></svg></span>Quero reservar minha data
       </a>
     </div>
@@ -641,14 +639,14 @@ footer .brand{font-family:var(--f-display);font-weight:900;font-size:26px;color:
       <div class="tag label-m"><i class="dia"></i>Perguntas</div>
       <h2 id="h-faq" class="display-l" style="font-size:clamp(44px,6vw,76px)">Ainda ficou alguma dúvida?</h2>
       <p>Se a sua não estiver aqui, me chama no WhatsApp. Quem responde sou eu.</p>
-      <a class="cta" href="#" data-wa="Olá, Bruno! Tenho uma dúvida sobre a Bravura.">
+      <a class="cta" href="https://wa.me/5516992117706?text=Ol%C3%A1%2C%20Bruno!%20Vim%20pelo%20site%20e%20quero%20reservar%20uma%20data%20para%20o%20churrasco." target="_blank" rel="noopener">
         <span class="ico"><svg><use href="#wa"/></svg></span>Quero reservar minha data
       </a>
     </div>
 
     <div class="rv d1">
       <details class="qa" open><summary><span class="num">01</span><h3>Sai mais caro do que eu mesmo fazer?</h3><span class="pm"></span></summary>
-        <div class="a">A festa é sua, e quem faz o churrasco quase nunca aproveita: passa horas no calor da brasa enquanto os convidados conversam sem você. A partir de R$ 250, você recebe, conversa e curte do começo ao fim. E ainda ganha acompanhamentos da casa por minha conta: sal de parrilha em toda festa, pasta de alho acima de 30 convidados e chimichurri acima de 40.</div></details>
+        <div class="a">A festa é sua, e quem faz o churrasco quase nunca aproveita: passa horas no calor da brasa enquanto os convidados conversam sem você. A partir de R$ 200, você recebe, conversa e curte do começo ao fim. E ainda ganha acompanhamentos da casa por minha conta: sal de parrilha em toda festa, pasta de alho acima de 30 convidados e chimichurri acima de 40.</div></details>
       <details class="qa"><summary><span class="num">02</span><h3>Serve pra minha festa?</h3><span class="pm"></span></summary>
         <div class="a">Se for em Sertãozinho e tiver até 50 convidados, serve. Aniversário, confraternização, reunião de família ou encontro entre amigos: se tem churrasqueira no local, eu cuido do resto.</div></details>
       <details class="qa"><summary><span class="num">03</span><h3>A carne está inclusa?</h3><span class="pm"></span></summary>
@@ -675,7 +673,7 @@ footer .brand{font-family:var(--f-display);font-weight:900;font-size:26px;color:
     <h2 id="h-fecho" class="display-l rv">Seu evento, nossa brasa.</h2>
     <p class="body-l rv d1">Você recebe os convidados. A brasa é com a gente.</p>
     <div class="rv d2">
-      <a class="cta glow" href="#" data-wa="Olá, Bruno! Quero reservar minha data com a Bravura.">
+      <a class="cta glow" href="https://wa.me/5516992117706?text=Ol%C3%A1%2C%20Bruno!%20Vim%20pelo%20site%20e%20quero%20reservar%20uma%20data%20para%20o%20churrasco." target="_blank" rel="noopener">
         <span class="ico"><svg><use href="#wa"/></svg></span>Orçamento pelo WhatsApp
       </a>
       <span class="cta-note caption">(16) 99211-7706 · Bruno Juvencio, churrasqueiro</span>
@@ -695,13 +693,6 @@ footer .brand{font-family:var(--f-display);font-weight:900;font-size:26px;color:
 
 <script>
 (function(){
-  // Links do WhatsApp
-  var WA = "5516992117706";
-  document.querySelectorAll("[data-wa]").forEach(function(a){
-    a.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(a.getAttribute("data-wa"));
-    a.target = "_blank"; a.rel = "noopener";
-  });
-
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // Brasas subindo no hero
@@ -733,37 +724,42 @@ footer .brand{font-family:var(--f-display);font-weight:900;font-size:26px;color:
     targets.forEach(function(t){ t.classList.add("on"); });
   }
 
-  // Preço por número de convidados: R$ 250 até 30; +R$ 50 a cada 10 pessoas acima disso
-  // Brindes por faixa: até 30 = sal de parrilha; 31 a 40 = + pasta de alho; acima de 40 = + chimichurri
+  // Preço por faixa de convidados: preço cheio (riscado) e preço de lançamento (o que a pessoa paga)
+  // Temperos por faixa: até 30 = sal de parrilha; 31 a 40 = + pasta de alho; acima de 40 = + chimichurri
+  // Valor total = preço cheio + temperos incluídos na faixa
   var MIN = 10, MAX = 50;
+  var TIERS = [
+    { max: 30, full: 250, launch: 200 },
+    { max: 40, full: 300, launch: 250 },
+    { max: 50, full: 350, launch: 300 }
+  ];
   var bonusItems = document.querySelectorAll(".line-item.bonus");
   var range = document.getElementById("guests-range");
-  var brl = function(v){ return "R$ " + v.toLocaleString("pt-BR", { minimumFractionDigits: v % 1 ? 2 : 0, maximumFractionDigits: 2 }); };
-  var priceFor = function(n){ return 250 + 50 * Math.ceil(Math.max(0, n - 30) / 10); };
+  var brl = function(v){ return "R$ " + v.toLocaleString("pt-BR"); };
+  var brl2 = function(v){ return "R$ " + v.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 }); };
   var priceNum = document.getElementById("price-num");
-  var ctaPreco = document.getElementById("preco-cta");
   var last = null;
   function setGuests(n){
     n = Math.min(MAX, Math.max(MIN, n));
     range.value = n;
-    var p = priceFor(n), per = Math.round(p / n * 100) / 100;
+    var tier = TIERS.filter(function(t){ return n <= t.max; })[0];
     range.style.setProperty("--fill", ((n - MIN) / (MAX - MIN) * 100) + "%");
     document.querySelector("#guests-out b").textContent = n;
-    document.querySelectorAll("[data-price-text]").forEach(function(el){ el.textContent = brl(p); });
+    document.querySelectorAll("[data-full-text]").forEach(function(el){ el.textContent = brl(tier.full); });
+    document.querySelectorAll("[data-launch-text]").forEach(function(el){ el.textContent = brl(tier.launch); });
     var bonus = 0;
     bonusItems.forEach(function(it){
       var on = n >= +it.dataset.min;
       it.classList.toggle("locked", !on);
       if (on) bonus += +it.dataset.value;
     });
-    document.querySelectorAll("[data-total-text]").forEach(function(el){ el.textContent = brl(p + bonus); });
-    priceNum.textContent = p;
-    if (last !== null && last !== p) { priceNum.classList.remove("bump"); void priceNum.offsetWidth; priceNum.classList.add("bump"); }
-    last = p;
-    document.getElementById("per-num").textContent = brl(per);
+    document.querySelectorAll("[data-total-text]").forEach(function(el){ el.textContent = brl(tier.full + bonus); });
+    priceNum.textContent = tier.launch;
+    if (last !== null && last !== tier.launch) { priceNum.classList.remove("bump"); void priceNum.offsetWidth; priceNum.classList.add("bump"); }
+    last = tier.launch;
+    document.getElementById("per-num").textContent = brl2(tier.launch / n);
     document.getElementById("per-guests").textContent = n;
     document.querySelectorAll(".step-btn").forEach(function(b){ b.disabled = (+b.dataset.step < 0 && n <= MIN) || (+b.dataset.step > 0 && n >= MAX); });
-    ctaPreco.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent("Olá, Bruno! Quero reservar minha data. Serão " + n + " convidados (" + brl(p) + ").");
   }
   range.addEventListener("input", function(){ setGuests(+range.value); });
   document.querySelectorAll(".step-btn").forEach(function(b){
